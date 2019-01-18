@@ -1,9 +1,10 @@
 import discord
 from discord.ext import commands
 import asyncio
+import myToken as t
 
 
-TOKEN = 'NTIxMjM2NzE3NTE3Mjc1MTQy.Dxz_6A.49eva4xSJ0Cq1T-k1-OCSJFIBIk'
+TOKEN = t.getKey()
 description ='''Bot Serveur Saitama'''
 
 bot = commands.Bot(command_prefix=('!','?'), description=description)
