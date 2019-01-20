@@ -63,3 +63,9 @@ Traceback (most recent call last):
 discord.errors.ConnectionClosed: WebSocket connection is closed: code = 4004, reason = Authentication failed..
 Unclosed client session
 client_session: <aiohttp.client.ClientSession object at 0x75e4caf0>
+Logged in as
+Botama
+521236717517275142
+-----
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x75e3db70>
