@@ -7,6 +7,7 @@ description ='''Bot Serveur Saitama'''
 bot = commands.Bot(command_prefix=('!','?'), description=description)
 
 bot.load_extension('bot.VoicePlayer')
+bot.load_extension('bot.MessageSender')
 @bot.event
 async def on_ready():
     print('Logged in as')
