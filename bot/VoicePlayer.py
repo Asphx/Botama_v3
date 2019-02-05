@@ -10,6 +10,7 @@ class VoicePlayer:
         self.bot = bot
         self.bot_DIR = '/home/pi/Bot/Botama_v3/bot/'
         self.SONG_DIR = self.bot_DIR + 'song/'
+        self.SLEEP = 2
 
     # Command that allow you to play a song downloaded from Youtube
     # To make it work type !play ARandomYoutubeUrl
@@ -32,7 +33,7 @@ class VoicePlayer:
             player.start()
             # While the song isn't finished, sleep(1) in order to avoid it closing before the end (TBH it will close just after he loaded the song)
             while not player.is_done():
-                await asyncio.sleep(1)
+                await asyncio.sleep(self.SLEEP)
             player.stop()
             await voice.disconnect()
         else:
@@ -55,7 +56,7 @@ class VoicePlayer:
             player.start()
 
             while not player.is_done():
-                await asyncio.sleep(1)
+                await asyncio.sleep(self.SLEEP)
             player.stop()
             await voice.disconnect()
         else:
@@ -77,7 +78,7 @@ class VoicePlayer:
             player.start()
 
             while not player.is_done():
-                await asyncio.sleep(1)
+                await asyncio.sleep(self.SLEEP)
             player.stop()
             await voice.disconnect()
         else:
@@ -103,7 +104,7 @@ class VoicePlayer:
             player.start()
 
             while not player.is_done():
-                await asyncio.sleep(1)
+                await asyncio.sleep(self.SLEEP)
             player.stop()
             await voice.disconnect()
         else:
