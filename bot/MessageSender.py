@@ -33,7 +33,7 @@ class MessageSender:
     @commands.command(name='media', description='Send smtg from disk', pass_context=True)
     async def sendMedia(self, ctx, mediaName):
         channel = ctx.message.channel
-        file = self.GIF_DIR + mediaName
+        file = self.MEDIA_DIR + mediaName
         with open(file, 'rb') as f:
             await self.bot.send_file(channel, f)
 
