@@ -14,34 +14,34 @@ class VoicePlayer:
 
     # Command that allow you to play a song downloaded from Youtube
     # To make it work type !play ARandomYoutubeUrl
-    @commands.command(name='yt', description='Play a song from a given YouTube link', pass_context=True)
+    @commands.command(name='yt', description='Play a song from a given YouTube link', brief='Play a youtube song', pass_context=True)
     async def playYoutube(self, context, url):
         await self.play_a_song(context, url, yt=True)
 
-    @commands.command(name='vlad', description='Play vladimir Cauchemard', pass_context=True)
+    @commands.command(name='vlad', description='Play vladimir Cauchemard', brief='Play Vladimir Cauchemard song', pass_context=True)
     async def vlad(self, context):
         await self.play_a_song(context, 'vlad.mp3')
 
-    @commands.command(name='cowboy', description='Screaming Cowboy', pass_context=True)
+    @commands.command(name='cowboy', description='Screaming Cowboy', brief='Play Screaming Cowboy song', pass_context=True)
     async def cowboy(self, context):
         await self.play_a_song(context, 'screaming_cowboy.mp3')
 
-    @commands.command(name='song', description='Play song from local dir', pass_context=True)
+    @commands.command(name='song', description='Play song from local dir', brief='Play a song from local dir (use !songList)', pass_context=True)
     async def song(self, context, song_name):
         if '.' in song_name:
             await self.play_a_song(context, song_name)
         else:
             await self.play_a_song(context, song_name + '.mp3')
 
-    @commands.command(name='listSong', description='Show all song availables')
-    async def listSong(self):
+    @commands.command(name='songList', description='Show all song availables', brief='List all local song')
+    async def song_list(self):
         files = [f for f in os.listdir(self.SONG_DIR)]
         files = '\n'.join(files)
         print(files)
         await self.bot.say('List of songs :\n{}'.format(files))
 
     # Make the self.bot leave the channel cause fuck it
-    @commands.command(pass_context=True)
+    @commands.command(pass_context=True, brief='Make the bot leave vocal song', description='Make the bot leave vocal song')
     async def leave(self, context):
         server = context.message.server
         voice_client = self.bot.voice_client_in(server)
@@ -62,7 +62,6 @@ class VoicePlayer:
 
         user = context.message.author
         voice_channel = user.voice.voice_channel
-        channel = None
         # If the user is in a voice channel connect to this channel
         if voice_channel:
             channel = voice_channel.name
@@ -76,7 +75,6 @@ class VoicePlayer:
                 player = voice.create_ffmpeg_player(self.SONG_DIR + song)
             # We set the volume to 0.1 (1 is 100%, 2 for 200%, so 0.1 will be 10%)
             player.volume = self.VOLUME
-            await asyncio.sleep(self.SLEEP)
             player.start()
             # While the song isn't finished, sleep(1) in order to avoid it closing before the end
             while not player.is_done():
