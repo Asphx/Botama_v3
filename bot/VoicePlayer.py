@@ -16,22 +16,22 @@ class VoicePlayer:
     # To make it work type !play ARandomYoutubeUrl
     @commands.command(name='yt', description='Play a song from a given YouTube link', pass_context=True)
     async def playYoutube(self, context, url):
-        await self.playASong(context, url, yt=True)
+        await self.play_a_song(context, url, yt=True)
 
     @commands.command(name='vlad', description='Play vladimir Cauchemard', pass_context=True)
     async def vlad(self, context):
-        await self.playASong(context, 'vlad.mp3')
+        await self.play_a_song(context, 'vlad.mp3')
 
     @commands.command(name='cowboy', description='Screaming Cowboy', pass_context=True)
     async def cowboy(self, context):
-        await self.playASong(context, 'screaming_cowboy.mp3')
+        await self.play_a_song(context, 'screaming_cowboy.mp3')
 
     @commands.command(name='song', description='Play song from local dir', pass_context=True)
     async def song(self, context, song_name):
         if '.' in song_name:
-            await self.playASong(context, song_name)
+            await self.play_a_song(context, song_name)
         else:
-            await self.playASong(context, song_name + '.mp3')
+            await self.play_a_song(context, song_name + '.mp3')
 
     @commands.command(name='listSong', description='Show all song availables')
     async def listSong(self):
@@ -54,7 +54,7 @@ class VoicePlayer:
         else:
             return False
 
-    async def playASong(self, context, song, yt=False):
+    async def play_a_song(self, context, song, yt=False):
         # grab the user who sent the command and his channel
         connected = await self.is_connected_to_voice_channel(context.message.server)
         if connected:
