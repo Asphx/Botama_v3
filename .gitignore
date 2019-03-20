@@ -8,3 +8,6 @@ Scripts/
 pyvenv.cfg
 *__pycache__*
 *nohup.out*
+bot/gif/*
+bot/media/*
+bot/song/*

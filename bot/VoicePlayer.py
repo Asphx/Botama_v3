@@ -59,7 +59,6 @@ class VoicePlayer:
         connected = await self.is_connected_to_voice_channel(context.message.server)
         if connected:
             return
-
         user = context.message.author
         voice_channel = user.voice.voice_channel
         # If the user is in a voice channel connect to this channel
