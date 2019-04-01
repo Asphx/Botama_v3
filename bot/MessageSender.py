@@ -9,6 +9,8 @@ class MessageSender:
         self.bot_DIR = '/home/pi/Bot/Botama_v3/bot/'
         self.GIF_DIR = self.bot_DIR + 'gif/'
         self.MEDIA_DIR = self.bot_DIR + 'media/'
+        self.SONG_DIR = self.bot_DIR + 'song/'
+
 
 
     @commands.command(name='yesn', description='Yeeeees nigga', pass_context=True)
@@ -36,6 +38,11 @@ class MessageSender:
     @commands.command(name='list_media', description='Show all other media availables')
     async def list_media(self):
         await self.list_files(self.MEDIA_DIR)
+
+    @commands.command(name='list_song', description='Show all song availables', brief='List all local song')
+    async def song_list(self):
+        await self.list_files(self.SONG_DIR)
+
 
     async def list_files(self, dir):
         files = [f for f in os.listdir(dir)]
