@@ -26,6 +26,11 @@ class VoicePlayer:
     async def cowboy(self, context):
         await self.play_local_song(context, 'screaming_cowboy.mp3')
 
+
+    @commands.command(name='ez4ence', description='EZ4ENCE', brief='Play EZ4ENCE song', pass_context=True)
+    async def cowboy(self, context):
+        await self.play_local_song(context, 'ez4ence.mp3')
+   
     @commands.command(name='song', description='Play song from local dir', brief='Play a song from local dir (use !songList)', pass_context=True)
     async def song(self, context, song_name):
         await self.play_local_song(context, song_name)
@@ -44,7 +49,7 @@ class VoicePlayer:
         else:
             return False
 
-    async def play_yt_song(self, context, song, ):
+    async def play_yt_song(self, context, song):
         # grab the user who sent the command and his channel
         connected = await self.is_connected_to_voice_channel(context.message.server)
         if connected:
@@ -58,8 +63,7 @@ class VoicePlayer:
             await self.bot.say('User is in channel: ' + channel)
             # create StreamPlayer
             voice = await self.bot.join_voice_channel(voice_channel)
-
-            player = voice.create_ffmpeg_player(self.SONG_DIR + song)
+            player = await voice.create_ytdl_player(song)
             # We set the volume to 0.1 (1 is 100%, 2 for 200%, so 0.1 will be 10%)
             player.volume = self.VOLUME
             player.start()
