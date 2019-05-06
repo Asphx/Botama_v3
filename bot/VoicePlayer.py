@@ -1,7 +1,7 @@
 from discord.ext import commands
 import asyncio
 import os
-
+from SysInteraction import SystemInteraction
 
 class VoicePlayer:
 
@@ -103,6 +103,16 @@ class VoicePlayer:
         else:
             await self.bot.say('User is not in a channel.')
 
+    @commands.command(name='dl-yt', description='Download a song from a given YouTube link into the server', brief='Download a youtube song', pass_context=True)
+    async def download_local_song(self, context, song, name):
+        user = context.message.author
+        await self.bot.say('Start the download of {} giving it the name of {}.mp3'.format(song, name))
+        try:
+            SystemInteraction.download_and_store_song(song, name)
+            await self.bot.say('Download Successful')
+            await self.bot.say('!list_song')
+        except Exception as e:
+            await self.bot.say('There as been an error download the song, try again with a different url and a different name')
 
 def setup(bot):
     bot.add_cog(VoicePlayer(bot))

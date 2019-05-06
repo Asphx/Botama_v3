@@ -6,9 +6,14 @@ class SystemInteraction:
         pass
 
     @staticmethod
-    def download_and_store_song(song):
+    def download_and_store_song(song, name):
         """
         This method take an url as a parameters, and optionally a name for the song
         then use youtube-dl to download it and store it in /home/pi/Botama/bot/song/ folder with default or given name
         """
-        pass
+        try:
+            os.system('youtube-dl {} -x --audio-format mp3 --audio-quality 0 --restrict-filenames --no-playlist -o "{}.%(ext)s"'.format(song, name))
+            os.system('mv ./{}.mp3 /home/pi/Bot/Botama_v3/bot/song'.format(name))
+        except Exception as e :
+            print(e)
+
