@@ -19,6 +19,3 @@ async def on_ready():
     # Serveur : Saitama
 
 bot.run(TOKEN)
-
-
-
