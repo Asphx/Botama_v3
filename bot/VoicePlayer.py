@@ -1,7 +1,7 @@
 from discord.ext import commands
 import asyncio
 import os
-
+import subprocess
 
 class VoicePlayer:
 
@@ -103,6 +103,12 @@ class VoicePlayer:
         else:
             await self.bot.say('User is not in a channel.')
 
+
+    @commands.command(name='dl-yt', description='Download a song from a given YouTube link into the server', brief='Download a youtube song', pass_context=True)
+    async def download_local_song(self, context, song, name):
+        user = context.message.author
+        await self.bot.say('Start the download of {} giving it the name of {}.mp3'.format(song, name))
+        p = subprocess.Popen(['/usr/bin/python3', '/home/pi/Bot/Botama_v3/bot/SysInteraction.py', 'dl-yt', song, name])
 
 def setup(bot):
     bot.add_cog(VoicePlayer(bot))
