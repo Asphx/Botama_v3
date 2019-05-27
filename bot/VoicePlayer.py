@@ -8,7 +8,7 @@ class VoicePlayer:
     def __init__(self, bot):
         self.VOLUME = 0.1
         self.bot = bot
-        self.bot_DIR = '/home/pi/Bot/Botama_v3/bot/'
+        self.bot_DIR = './bot/'
         self.SONG_DIR = self.bot_DIR + 'song/'
         self.SLEEP = 1
 
@@ -108,7 +108,7 @@ class VoicePlayer:
     async def download_local_song(self, context, song, name):
         user = context.message.author
         await self.bot.say('Start the download of {} giving it the name of {}.mp3'.format(song, name))
-        p = subprocess.Popen(['/usr/bin/python3', '/home/pi/Bot/Botama_v3/bot/SysInteraction.py', 'dl-yt', song, name])
+        p = subprocess.Popen(['/usr/bin/python3', '/home/ubuntu/Workspace/Botama_v3/bot/SysInteraction.py', 'dl-yt', song, name])
 
 def setup(bot):
     bot.add_cog(VoicePlayer(bot))

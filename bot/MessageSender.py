@@ -6,7 +6,7 @@ class MessageSender:
 
     def __init__(self, bot):
         self.bot = bot
-        self.bot_DIR = '/home/pi/Bot/Botama_v3/bot/'
+        self.bot_DIR = './bot/'
         self.GIF_DIR = self.bot_DIR + 'gif/'
         self.MEDIA_DIR = self.bot_DIR + 'media/'
         self.SONG_DIR = self.bot_DIR + 'song/'

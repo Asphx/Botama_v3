@@ -14,7 +14,7 @@ class SystemInteraction:
         """
         try:
             os.system('youtube-dl {} -x --audio-format mp3 --audio-quality 0 --restrict-filenames --no-playlist --verbose -o "{}.%(ext)s"'.format(song, name))
-            os.system('mv ./{}.mp3 /home/pi/Bot/Botama_v3/bot/song'.format(name))
+            os.system('mv ./{}.mp3 /home/ubuntu/Workspace/Botama_v3/bot/song'.format(name))
             return 'Done'
         except Exception as e :
             print(e)
