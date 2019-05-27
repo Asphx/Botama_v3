@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-with open('key', 'r') as f:
+with open('/home/ubuntu/Workspace/Botama_v3/key', 'r') as f:
     TOKEN=f.readline()
 description ='''Bot Serveur Saitama'''
 bot = commands.Bot(command_prefix=('!','?'), description=description)
