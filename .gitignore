@@ -2,7 +2,6 @@
 .idea
 key
 *.sh
-*myToken*
 Lib/*
 Scripts/
 pyvenv.cfg

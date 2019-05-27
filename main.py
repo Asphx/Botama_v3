@@ -1,8 +1,8 @@
 import discord
 from discord.ext import commands
-import bot.myToken as t
 
-TOKEN = t.getKey()
+with open('key', 'r') as f:
+    TOKEN=f.readline()
 description ='''Bot Serveur Saitama'''
 bot = commands.Bot(command_prefix=('!','?'), description=description)
 
@@ -16,6 +16,5 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('-----')
-    # Serveur : Saitama
 
-bot.run(TOKEN)
+bot.run(TOKEN.strip())
