@@ -8,7 +8,7 @@ class VoicePlayer:
     def __init__(self, bot):
         self.VOLUME = 0.1
         self.bot = bot
-        self.bot_DIR = './bot/'
+        self.bot_DIR = os.path.dirname(os.path.realpath(__file__))
         self.SONG_DIR = self.bot_DIR + 'song/'
         self.SLEEP = 1
 

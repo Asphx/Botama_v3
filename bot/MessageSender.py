@@ -6,7 +6,7 @@ class MessageSender:
 
     def __init__(self, bot):
         self.bot = bot
-        self.bot_DIR = './bot/'
+        self.bot_DIR = os.path.dirname(os.path.realpath(__file__))
         self.GIF_DIR = self.bot_DIR + 'gif/'
         self.MEDIA_DIR = self.bot_DIR + 'media/'
         self.SONG_DIR = self.bot_DIR + 'song/'

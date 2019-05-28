@@ -10,11 +10,11 @@ class SystemInteraction:
     def download_and_store_song(song, name):
         """
         This method take an url as a parameters, and optionally a name for the song
-        then use youtube-dl to download it and store it in /home/pi/Botama/bot/song/ folder with default or given name
+        then use youtube-dl to download it and store it in  os.path.dirname(os.path.realpath(__file__))/song folder with default or given name
         """
         try:
             os.system('youtube-dl {} -x --audio-format mp3 --audio-quality 0 --restrict-filenames --no-playlist --verbose -o "{}.%(ext)s"'.format(song, name))
-            os.system('mv ./{}.mp3 /home/ubuntu/Workspace/Botama_v3/bot/song'.format(name))
+            os.system('mv ./{}.mp3 ' +  os.path.dirname(os.path.realpath(__file__)) + '/song'.format(name))
             return 'Done'
         except Exception as e :
             print(e)
