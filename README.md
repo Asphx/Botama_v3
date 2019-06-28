@@ -1,0 +1,1 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/902398d5192440c193d1b5f7614cc44b)](https://www.codacy.com/app/Asphx/Botama_v3?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Asphx/Botama_v3&amp;utm_campaign=Badge_Grade)
