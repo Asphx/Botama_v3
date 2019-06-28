@@ -2,7 +2,6 @@ import os
 import sys
 
 class SystemInteraction:
-    
     def __init__(self):
         pass
 

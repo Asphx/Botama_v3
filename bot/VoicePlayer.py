@@ -1,6 +1,5 @@
 from discord.ext import commands
 import asyncio
-import os
 import subprocess
 
 class VoicePlayer:
@@ -26,11 +25,10 @@ class VoicePlayer:
     async def cowboy(self, context):
         await self.play_local_song(context, 'screaming_cowboy.mp3')
 
-
     @commands.command(name='ez4ence', description='EZ4ENCE', brief='Play EZ4ENCE song', pass_context=True)
-    async def cowboy(self, context):
+    async def ezfourence(self, context):
         await self.play_local_song(context, 'ez4ence.mp3')
-   
+
     @commands.command(name='song', description='Play song from local dir', brief='Play a song from local dir (use !songList)', pass_context=True)
     async def song(self, context, song_name):
         await self.play_local_song(context, song_name)
@@ -106,7 +104,6 @@ class VoicePlayer:
 
     @commands.command(name='dl-yt', description='Download a song from a given YouTube link into the server', brief='Download a youtube song', pass_context=True)
     async def download_local_song(self, context, song, name):
-        user = context.message.author
         await self.bot.say('Start the download of {} giving it the name of {}.mp3'.format(song, name))
         p = subprocess.Popen(['/usr/bin/python3', '/home/ubuntu/Workspace/Botama_v3/bot/SysInteraction.py', 'dl-yt', song, name])
 
