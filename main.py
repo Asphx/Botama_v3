@@ -1,12 +1,13 @@
 import discord
 from discord.ext import commands
 
-with open('/home/ubuntu/Workspace/Botama_v3/key', 'r') as f:
+with open('/home/pi/Workspace/Botama_v3/key', 'r') as f:
     TOKEN=f.readline()
+    print(TOKEN)
 description ='''Bot Serveur Saitama'''
 bot = commands.Bot(command_prefix=('!','?'), description=description)
 
-bot.load_extension('bot.VoicePlayer')
+bot.load_extension("bot.VoicePlayer")
 bot.load_extension('bot.MessageSender')
 
 

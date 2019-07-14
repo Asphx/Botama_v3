@@ -3,7 +3,7 @@ import asyncio
 import os
 import subprocess
 
-class VoicePlayer:
+class VoicePlayer(commands.Cog):
 
     def __init__(self, bot):
         self.VOLUME = 0.1
